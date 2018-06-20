@@ -15,14 +15,14 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bids_id')->unsigned()->nullable();
-            $table->foreign('bids_id')->references('id')->on('bids')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('bid_id')->unsigned()->nullable();
+            $table->foreign('bid_id')->references('id')->on('bids')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('status', ['start', 'pending', 'review', 'done']);
-            $table->string('file');
-            $table->string('link_projects');
-            $table->string('description');
-            $table->string('date_start');
-            $table->string('date_ended');
+            $table->string('file')->nullable();
+            $table->string('link_projects')->nullable();
+            $table->string('description')->nullable();
+            $table->dateTime('date_start')->nullable();
+            $table->dateTime('date_ended')->nullable();
             $table->timestamps();
         });
     }

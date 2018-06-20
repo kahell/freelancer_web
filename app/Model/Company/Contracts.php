@@ -8,6 +8,7 @@ use App\Model\Company\Bids;
 
 use App\Rules\ValidBid;
 
+
 class Contracts extends Model
 {
   protected $fillable = ['bid_id','status','file','link_projects','description','date_start','date_ended'];
@@ -15,7 +16,7 @@ class Contracts extends Model
 
   public static function initialize(){
     return [
-      'bid_id' => 'Bids',
+      'bid_id' => 'Bid',
       'status' => 'Status',
       'file' => 'File',
       'link_projects' => 'Link Projects',
@@ -28,7 +29,7 @@ class Contracts extends Model
     return [
       'bid_id' => ['required', new ValidBid],
       'status' => 'required',
-      'file' => 'required',
+      'file' => 'required|mimes:doc,docx,pdf,jpeg,png,jpg,rar,zip',
       'link_projects' => 'required',
       'description' => 'required',
       'date_start' => 'required',

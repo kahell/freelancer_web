@@ -46,12 +46,12 @@ class Bids extends Model
 
   public function contract()
   {
-    return $this->hasOne(Contracts::class);
+    return $this->hasOne(Contracts::class,'bid_id');
   }
 
   public function transaction()
   {
-    return $this->hasOne(Transactions::class);
+    return $this->hasOne(Transactions::class,'bid_id');
   }
 
 }

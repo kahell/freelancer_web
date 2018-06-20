@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackagesRankTable extends Migration
+class CreatePackageRanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePackagesRankTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages_rank', function (Blueprint $table) {
+        Schema::create('package_ranks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('rank_id')->unsigned()->nullable();
             $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade')->onUpdate('cascade');
@@ -30,6 +30,6 @@ class CreatePackagesRankTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages_rank');
+        Schema::dropIfExists('package_ranks');
     }
 }

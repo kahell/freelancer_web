@@ -8,7 +8,7 @@ use App\Model\Packages\Ranks;
 
 use App\Rules\ValidRank;
 
-class Packages_rank extends Model
+class Package_ranks extends Model
 {
   protected $fillable = ['rank_id','prices','month'];
   protected $hidden = ['created_at', 'updated_at'];

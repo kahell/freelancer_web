@@ -14,7 +14,7 @@ use App\Rules\ValidBid;
 
 class Transactions extends Model
 {
-  protected $fillable = ['project_id','bid_id','user_id','method_payments','bank_account','salary_amount'
+  protected $fillable = ['project_id','bid_id','user_id','method_payments','bank_account','salary_amount',
   'tax_amount','total_amount','date','status'];
   protected $hidden = ['created_at', 'updated_at'];
 
@@ -53,7 +53,7 @@ class Transactions extends Model
   {
     return $this->belongsTo(User::class);
   }
-  
+
   public function bid()
   {
     return $this->belongsTo(Bids::class);

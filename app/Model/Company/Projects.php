@@ -11,12 +11,13 @@ use App\Model\Transactions\Transactions;
 
 class Projects extends Model
 {
-  protected $fillable = ['company_id','description','skill_required','range_salary','project_type','status','file_beverage'];
+  protected $fillable = ['company_id','title','description','skill_required','range_salary','project_type','status','file_beverage'];
   protected $hidden = ['created_at', 'updated_at'];
 
   public static function initialize(){
     return [
       'company_id' => 'Company',
+      'title' => 'Title',
       'description' => 'Description',
       'skill_required' => 'Skill',
       'range_salary' => 'Range Salary',
@@ -28,13 +29,14 @@ class Projects extends Model
   public static function formValidation(){
     return [
       'company_id' => ['required', new ValidCompany],
+      'title' => 'required',
       'description' => 'required',
       'skill_required' => 'required',
       'range_salary' => 'required',
       'project_type' => 'required',
       'address' => 'required',
       'status' => 'required',
-      'file_beverage' => 'required'
+      'file_beverage' => 'required|max:10000|mimes:doc,docx,pdf,jpeg,png,jpg'
     ];
   }
 

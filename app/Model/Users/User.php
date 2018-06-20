@@ -40,7 +40,7 @@ class User extends Authenticatable implements JWTSubject
       return [
         'name' => 'required|min:3|max:255',
         'gender' => 'required',
-        'avatar' => 'required',
+        'avatar' => 'required|max:10000|mimes:jpeg,png,jpg',
         'address' => 'required',
         'username' => 'required|unique:users|alpha_num|between:4,20',
         'password' => 'required|between:6,25|',
@@ -51,7 +51,7 @@ class User extends Authenticatable implements JWTSubject
         'wallet' => 'required',
         'bank_account' => 'required',
         'skills' => 'required',
-        'curicullum_vitae' => 'required',
+        'curicullum_vitae' => 'required|max:10000|mimes:doc,docx,pdf,jpeg,png,jpg',
         'salary' => 'required',
         'points' => 'required',
         'rank_id' => ['required', new ValidRank]
@@ -83,7 +83,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Reviews::class, 'user_id');
     }
 
-    public function bids()
+    public function bid()
     {
         return $this->hasMany(Bids::class, 'user_id');
     }

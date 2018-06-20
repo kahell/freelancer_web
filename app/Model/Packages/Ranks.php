@@ -19,7 +19,7 @@ class Ranks extends Model
   }
   public static function formValidation(){
     return [
-      'name' => 'required|min:3|max:255',
+      'name' => 'required|unique:ranks|min:3|max:255',
       'points' => 'required'
     ];
   }

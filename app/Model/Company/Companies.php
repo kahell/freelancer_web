@@ -5,7 +5,7 @@ namespace App\Model\Company;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Users\User;
-use App\Rules\ValidPhone;
+use App\Rules\ValidUser;
 
 class Companies extends Model
 {
@@ -27,11 +27,11 @@ class Companies extends Model
   }
   public static function formValidation(){
     return [
-      'user_id' => 'required',
+      'user_id' => ['required', new ValidUser],
       'name' => 'required|min:3|max:255',
       'description' => 'required',
       'industry' => 'required',
-      'logo' => 'required',
+      'logo' => 'required|max:10000|mimes:jpeg,png,jpg',
       'country' => 'required',
       'address' => 'required',
       'link_website' => 'required',

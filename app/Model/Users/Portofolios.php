@@ -22,7 +22,7 @@ class Portofolios extends Model
   public static function formValidation(){
     return [
       'user_id' => ['required', new ValidUser],
-      'picture' => 'required',
+      'picture' => 'required|max:10000|mimes:jpeg,png,jpg',
     ];
   }
 
