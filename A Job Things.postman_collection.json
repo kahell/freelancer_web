@@ -1,0 +1,2419 @@
+{
+	"info": {
+		"_postman_id": "537fef1f-db43-4122-b425-5204200fe26a",
+		"name": "A Job Things",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "caf7f553-bcad-42e8-82f8-59ed1a5c2c4d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"token\", \"Bearer \" + jsonData.data.token);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "pangestu",
+									"description": "text",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/login",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a494d2a-8107-4bdb-af92-1306b86327ba",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/me",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a494d2a-8107-4bdb-af92-1306b86327ba",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/payload",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"payload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b10a4088-77fa-47c8-8bcb-6630836bb1bc",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"token\", \"Bearer \" + jsonData.access_token);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/refresh",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b7e11c7f-16df-49ec-99b3-531595171053",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"token\", \"Bearer \" + jsonData.data.token);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/logout",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "usertest",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "secret",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Helfi",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "1",
+									"description": "[1,2]",
+									"type": "text"
+								},
+								{
+									"key": "bod",
+									"value": "12-01-1997",
+									"description": "birth of date",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Indonesia",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "00000000",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "rank_id",
+									"value": "2",
+									"description": "[1 => Rank A, 2 => Rank B]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/register",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"description": "",
+			"item": [
+				{
+					"name": "Get All Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/company",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/company/3",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/company/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By User Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/company/user/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Company Test 1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "industry",
+									"value": "IT",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "country",
+									"value": "Indonesia",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "JL. Lowokwaru Malang",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "link_website",
+									"value": "http://www.companytest.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "culture",
+									"value": "description culture",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/company",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "4",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Company Test 2",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "industry",
+									"value": "IT",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "logo",
+									"description": "",
+									"type": "file",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "Indonesia",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "address",
+									"value": "JL. Lowokwaru Malang",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "link_website",
+									"value": "http://www.companytest.com",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "culture",
+									"value": "description culture",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/company/update/3",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"company",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"description": "",
+			"item": [
+				{
+					"name": "Get All Project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/project",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/project/delete/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/project/show/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project",
+								"show",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Company Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/project/company/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Published",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/project/publish",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_id",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Project Title 2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Project Description 2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skill_required",
+									"value": "laravel, php",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "range_salary",
+									"value": "10 - 30",
+									"description": "Dolar, String",
+									"type": "text"
+								},
+								{
+									"key": "project_type",
+									"value": "1",
+									"description": "1 => 'working_hours',\n2 => 'working_project'",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 => 'publish'\n2 => 'draft',\n3 => 'done'",
+									"type": "text"
+								},
+								{
+									"key": "file_beverage",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/project",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project By ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_id",
+									"value": "1",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Project 1 Description",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "skill_required",
+									"value": "laravel, php",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "range_salary",
+									"value": "10 - 30",
+									"description": "Dolar, String",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "project_type",
+									"value": "1",
+									"description": "1 => 'working_hours',\n2 => 'working_project'",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 => 'publish'\n2 => 'draft',\n3 => 'done'",
+									"type": "text"
+								},
+								{
+									"key": "file_beverage",
+									"description": "",
+									"type": "file",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/project/update/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"project",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bid",
+			"description": "",
+			"item": [
+				{
+					"name": "Get All Bid",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/bid",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bid By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/bid/delete/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bid By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/bid/show/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid",
+								"show",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bid By User Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/bid/user/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Bid",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_id",
+									"value": "6",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "10",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "days",
+									"value": "3",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/bid",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bid",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_id",
+									"value": "1",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "salary",
+									"value": "100",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "days",
+									"value": "3",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/bid/update/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"bid",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "CRUD User",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/expert",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"expert"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/expert/delete/4",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"expert",
+										"delete",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/expert/show/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"expert",
+										"show",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Helfi",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "helfi123",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "helfi@helfi.com",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "secret",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "1",
+											"description": "1 => 'male',\n2 => 'female'",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "bod",
+											"value": "12 January 1997",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"description": "",
+											"type": "file",
+											"disabled": true
+										},
+										{
+											"key": "country",
+											"value": "Indonesia",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "address",
+											"value": "Jl. Helfi Pangstu",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phone_number",
+											"value": "12345678",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "wallet",
+											"value": "0",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "bank_account",
+											"value": "12300-12313-123123",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "skills",
+											"value": "php, java, node",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "curicullum_vitae",
+											"description": "",
+											"type": "file",
+											"disabled": true
+										},
+										{
+											"key": "salary",
+											"value": "10000",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "points",
+											"value": "20",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "rank_id",
+											"value": "2",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/expert/update/4",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"expert",
+										"update",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "helfipangestu",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "helfipangestu@helfipangestu.com",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "secret",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "secret",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "helfipangestu",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "1",
+											"description": "1 => 'male',\n2 => 'female'",
+											"type": "text"
+										},
+										{
+											"key": "bod",
+											"value": "12 January 1997",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Indonesia",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "088888888888",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "rank_id",
+											"value": "2",
+											"description": "[1 => Rank A, 2 => Rank B]",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/expert",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"expert"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "CRUD Portofolio",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Portofolio",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/portofolio",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"portofolio"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Portofolio By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/portofolio/delete/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"portofolio",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Portofolio By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/portofolio/show/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"portofolio",
+										"show",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Portofolio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "portofolio",
+											"description": "",
+											"type": "file"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/portofolio/update/3",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"portofolio",
+										"update",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert Portofolio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "picture",
+											"value": "",
+											"description": "",
+											"type": "file"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/portofolio",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"portofolio"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "CRUD Review",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Review",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/review",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Review By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/review/delete/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"review",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get review By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{host}}api/review/show/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"review",
+										"show",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update review",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"description": "Select one user_id or  company_id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "project_id",
+											"value": "2",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"description": "Select one user_id or  company_id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "review",
+											"value": "Cool Kids",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "1",
+											"description": "1 -5",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/review/update/1",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"review",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert review",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"description": "Select one user_id or  company_id",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "2",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"description": "Select one user_id or  company_id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "review",
+											"value": "Cool",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "1",
+											"description": "1 -5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}api/review",
+									"host": [
+										"{{host}}api"
+									],
+									"path": [
+										"review"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_id",
+									"value": "2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "bid_id",
+									"value": "2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "method_payments",
+									"value": "1",
+									"description": "1 => 'wallet'\n2 => 'paypal'",
+									"type": "text"
+								},
+								{
+									"key": "bank_account",
+									"value": "12312312-12312312-12312",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/payment",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy Package Rank",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "package_rank_id",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_account",
+									"value": "123-123-123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "method_payments",
+									"value": "1",
+									"description": "1 => 'wallet'\n2 => 'paypal'",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/buy_rank",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"buy_rank"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contract",
+			"description": "",
+			"item": [
+				{
+					"name": "Get All Contract",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/contract",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Conract By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/contract/delete/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contract By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}api/contract/show/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bid_id",
+									"value": "2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/contract",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 => 'start'\n2 => 'pending'\n3 => 'review',\n4 => 'done'",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/contract/start/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract",
+								"start",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "3",
+									"description": "1 => 'start'\n2 => 'pending'\n3 => 'review',\n4 => 'done'",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"description": "",
+									"type": "file",
+									"disabled": true
+								},
+								{
+									"key": "link_projects",
+									"value": "http://www.links.com",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "This project descriition after finish",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/contract/update/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"contract",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
