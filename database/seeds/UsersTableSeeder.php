@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
         'phone_number' => '083800000000',
         'country' => 'Indonesia',
         'wallet' => 0,
-        'points' => 0,
+        'points' => 40,
         'rank_id' => 1
       ]);
 
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
         'phone_number' => '085800000000',
         'country' => 'Indonesia',
         'wallet' => 0,
-        'points' => 0,
+        'points' => 20,
         'rank_id' => 2
       ]);
 

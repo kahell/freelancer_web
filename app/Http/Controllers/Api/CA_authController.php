@@ -40,7 +40,7 @@ class CA_authController extends Controller
         'status'=> false,
         'data' => null,
         'message' => $validator->errors()->first()
-      ], 200);
+      ], 422);
     }
 
     // Get Rank
@@ -81,7 +81,7 @@ class CA_authController extends Controller
         'status'=> false,
         'data' => null,
         'message' => $validator->errors()->first()
-      ], 200);
+      ], 422);
     }
 
     $user = User::where('username', $request->username)->first();
@@ -106,7 +106,7 @@ class CA_authController extends Controller
       'status' => FALSE,
       'data' => null,
       'message' => 'Provided username and password does not match!'
-    ],200);
+    ],401);
   }
 
   public function me()
@@ -126,7 +126,7 @@ class CA_authController extends Controller
           'token' => null
         ],
         'message' => 'Successfully logged out'
-      ]
+      ],200
     );
   }
 

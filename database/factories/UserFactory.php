@@ -2,22 +2,23 @@
 
 use Faker\Generator as Faker;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
+$factory->define(App\Model\Users\User::class, function (Faker $faker) {
+    $gender = $faker->randomElement(['male', 'female']);
+    $genderInitial = ($gender == 'male') ? 'M' : 'F';
 
-$factory->define(App\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+      'name' => $faker->name,
+      'gender' => $faker->randomFloat(1, 2),
+      'avatar' => 'http://www.designskilz.com/random-users/images/image'.$genderInitial.rand(1, 50).'.jpg',
+      'address' => $faker->address,
+      'username' => $faker->unique()->userName,
+      'password' => bcrypt('password'),
+      'email' => $faker->unique()->safeEmail,
+      'bod' => $faker->dateTimeAD($max = 'now', $timezone = "Asia/Jakarta"),
+      'phone_number' => $faker->phoneNumber,
+      'country' => 'Indonesia',
+      'wallet' => 0,
+      'points' => 0,
+      'rank_id' => 1
     ];
 });

@@ -18,8 +18,12 @@ MVC (Model View Controller) - Laravel
 
 ## Running
 - Clone this repository
-- Create .env file
-- Create database
+- Duplicate .env.example and remove ".example" on that file it must look ".env"
+- Create database (ex: db name is 'freelancer_web') and change .env
+  DB_DATABASE=freelancer_web
+  DB_USERNAME=root
+  DB_PASSWORD=
+- Create database with name 'testing'
 - npm install
 - php artisan migrate
 - php artisan db:seed

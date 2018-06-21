@@ -11,7 +11,7 @@ class jwt
   public function handle($request, Closure $next)
   {
     $header = $request->header('Authorization');
-    if (!empty($header)) {
+    if (!empty($header) && $header != "Bearer null") {
       try {
           $this->auth = JWTAuth::parseToken()->authenticate();
           return $next($request);
