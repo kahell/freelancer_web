@@ -24,9 +24,8 @@ MVC (Model View Controller) - Laravel
   DB_USERNAME=root
   DB_PASSWORD=
 - Create database with name 'testing'
-- npm install
-- php artisan migrate
-- php artisan db:seed
+- composer install
+- php artisan migrate --seed
 - php artisan jwt:secret
 - php artisan storage:link
 - Activate your xamp / wamp
